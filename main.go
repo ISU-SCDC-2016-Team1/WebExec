@@ -18,28 +18,28 @@ func main() {
 
 		if (function == "stdin") {
 			var out bytes.Buffer
-			cmd := exec.Command("crconsole", "-u " + user + " -i /tmp/" + user + ".priv -p " + project + " -r " + runner + " stdin -f /tmp/stdin_" + user + "_stdin.tmp")
+			cmd := exec.Command("crconsole", "-u", user, "-i", "/tmp/" + user + ".priv",  "-p", project, "-r", runner, "stdin", "-f", "/tmp/stdin_" + user + "_stdin.tmp")
 			cmd.Stdout = &out
 			cmd.Stderr = &out
 			cmd.Run()
 			fmt.Fprintln(w, out.String())
 		} else if (function == "get") {
 			var out bytes.Buffer
-			cmd := exec.Command("crconsole", "-u " + user + " -i /tmp/" + user + ".priv -p " + project + " -r " + runner + " get -m " + method)
+			cmd := exec.Command("crconsole", "-u", user, "-i", "/tmp/" + user + ".priv",  "-p", project, "-r", runner, "get", "-m", method)
 			cmd.Stdout = &out
 			cmd.Stderr = &out
 			cmd.Run()
 			fmt.Fprintln(w, out.String())
 		} else if (function == "run") {
 			var out bytes.Buffer
-			cmd := exec.Command("crconsole", "-u " + user + " -i /tmp/" + user + ".priv -p " + project + " -r " + runner + " run -x " + redirect)
+			cmd := exec.Command("crconsole", "-u", user, "-i", "/tmp/" + user + ".priv",  "-p", project, "-r", runner, "run", "-x", redirect)
 			cmd.Stdout = &out
 			cmd.Stderr = &out
 			cmd.Run()
 			fmt.Fprintln(w, out.String())
 		} else {
 			var out bytes.Buffer
-			cmd := exec.Command("crconsole", "-u " + user + " -i /tmp/" + user + ".priv -p " + project + " -r " + runner + " " + function)
+			cmd := exec.Command("crconsole", "-u", user, "-i", "/tmp/" + user + ".priv",  "-p", project, "-r", runner, function)
 			cmd.Stdout = &out
 			cmd.Stderr = &out
 			cmd.Run()
